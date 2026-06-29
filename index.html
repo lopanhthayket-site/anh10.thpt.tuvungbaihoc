@@ -387,7 +387,23 @@ document.addEventListener("DOMContentLoaded", function() {
             font-size:18px; color:#7a4e3e;">
   Đã biết 0 / 0
 </div>
+<div style="margin:15px 0;">
 
+<button id="btnVNEN"
+        onclick="setMode('vn-en')">
+
+Việt ➜ Anh
+
+</button>
+
+<button id="btnENVN"
+        onclick="setMode('en-vn')">
+
+Anh ➜ Việt
+
+</button>
+
+</div>
 
   <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
     
@@ -446,7 +462,7 @@ const data = {
   { en: "do household chores (v phr)", vn: "làm việc nhà, làm các công việc lặt vặt trong gia đình", tick: false },
   { en: "study for exams (v phr)", vn: "ôn thi, học bài để chuẩn bị cho kỳ thi", tick: false },
   { en: "divide (v) /dɪˈvaɪd/", vn: "phân chia, chia nhỏ (thường dùng cấu trúc: divide sth into parts)", tick: false },
-  { en: "homemaker (n) /ˈhəʊmmeɪkə(r)/", vn: "người nội trợ (người ở nhà lo quán xuyến việc gia đình)", tick: false },
+  { en: "homemaker (n) /ˈhəʊmmeɪkə(r)/", vn: "người nội trợ", tick: false },
   { en: "breadwinner (n) /ˈbredwɪnə(r)/", vn: "trụ cột gia đình (người đi làm kiếm tiền chính nuôi gia đình)", tick: false },
   { en: "earn money (v phr)", vn: "kiếm tiền (bằng công sức lao động của mình)", tick: false },
   { en: "equal (adj) /ˈiːkwəl/", vn: "ngang bằng, bình đẳng, công bằng", tick: false },
@@ -504,6 +520,13 @@ const data = {
   { en: "do extracurricular activities (v phr)", vn: "tham gia các hoạt động ngoại khóa (thể thao, tình nguyện...)", tick: false },
   { en: "mark (n/v) /mɑːk/", vn: "điểm số, dấu vết (n); đánh dấu, chấm điểm bài thi (v)", tick: false },
   { en: "clear up the kitchen (v phr)", vn: "dọn dẹp sạch sẽ căn bếp (sau khi nấu nướng/ăn xong)", tick: false },
+{ en: "duty (n) /ˈdjuːti/", vn: "nghĩa vụ, bổn phận, trách nhiệm (phải làm vì đạo đức hoặc luật pháp)", tick: false },
+  { en: "hobby (n) /ˈhɒbi/", vn: "sở thích cá nhân, hoạt động giải trí lúc rảnh rỗi (số nhiều viết là hobbies)", tick: false },
+  { en: "common (adj) /ˈkɒmən/", vn: "phổ biến, thông thường, chung (thường gặp cụm: have sth in common - có điểm chung)", tick: false },
+  { en: "interest (n/v) /ˈɪntrest/ hoặc /ˈɪntərɪst/", vn: "sự quan tâm, sở thích, tiền lãi ngân hàng (n); làm cho ai hứng thú (v)", tick: false },
+  { en: "grateful (adj) /ˈɡreɪtfl/", vn: "biết ơn, cảm kích (thường dùng: be grateful to sb for sth)", tick: false },
+  { en: "quality (n) /ˈkwɒləti/", vn: "phẩm chất, chất lượng, đặc tính", tick: false },
+  { en: "different from (adj phr)", vn: "khác biệt so với, không giống với (trái nghĩa là similar to)", tick: false },
   ],
 
   3: [
@@ -519,38 +542,58 @@ const lessonAudios = {
 
 };
 
-let currList = 1, listCopy=[], index=0;
+let currList = 1,
+    listCopy = [],
+    index = 0;
 
 let totalWords = 0;
 let knownCount = 0;
 
+let reviewMode = "vn-en";
 /********** LOAD LIST **********/
 function loadList(){
+
   currList = document.getElementById("wordList").value;
 
-  const audio = document.getElementById("lessonAudio");
-
-  if (lessonAudios[currList]) {
-    audio.src = lessonAudios[currList];
-    audio.load();
-  }
-
   listCopy = [...data[currList]];
+
   totalWords = listCopy.length;
+
   knownCount = 0;
 
   updateCounter();
+
   renderWords();
-  index=-1;
-  nextWord();
+
   loadExercises();
+
+  setMode(reviewMode);
+
 }
 
 function updateCounter(){
   document.getElementById("progressCounter").innerText =
     `Đã biết ${knownCount} / ${totalWords}`;
 }
+function setMode(mode){
 
+   reviewMode = mode;
+
+   document.getElementById("btnVNEN")
+      .style.background =
+      mode==="vn-en"
+      ? "#ffb3ba"
+      : "#a0e7e5";
+
+   document.getElementById("btnENVN")
+      .style.background =
+      mode==="en-vn"
+      ? "#ffb3ba"
+      : "#a0e7e5";
+
+   nextWord();
+
+}
 
 document.getElementById("wordList").onchange = loadList;
 loadList();
@@ -626,7 +669,18 @@ function nextWord(){
     return;
   }
   index=Math.floor(Math.random()*listCopy.length);
-  document.getElementById("vietWord").innerHTML=listCopy[index].vn;
+if(reviewMode==="vn-en"){
+
+document.getElementById("vietWord").innerHTML =
+listCopy[index].vn;
+
+}
+else{
+
+document.getElementById("vietWord").innerHTML =
+listCopy[index].en;
+
+}
 }
 
 function know(){
@@ -638,7 +692,20 @@ function know(){
 }
 
 function dontKnow(){
-  document.getElementById("answer").innerHTML=listCopy[index].en;
+
+if(reviewMode==="vn-en"){
+
+document.getElementById("answer").innerHTML =
+listCopy[index].en;
+
+}
+else{
+
+document.getElementById("answer").innerHTML =
+listCopy[index].vn;
+
+}
+
 }
 
 /********** EXERCISES **********/
