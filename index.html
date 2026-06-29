@@ -405,7 +405,7 @@ Anh ➜ Việt
 
 </div>
 
-  <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
+  <div id="vietWord">Chọn hiển thị Việt Anh/Anh Việt để bắt đầu</div>
     
   <!-- Hiển thị đáp án -->
 <div id="answer" style="font-size:22px;color:#7a4e3e; margin-top:15px; text-align:center; min-height:40px;"></div>
@@ -454,14 +454,14 @@ const data = {
 { en: "sports field (n phr)", vn: "sân thể thao, bãi tập thể thao ngoài trời", tick: false },
   { en: "free (adj) /friː/", vn: "rảnh rỗi, tự do, miễn phí", tick: false },
   { en: "join (v) /dʒɔɪn/", vn: "tham gia, gia nhập, kết nối vào", tick: false },
-  { en: "afraid (adj) /əˈfreɪd/", vn: "e sợ, lo ngại (thường dùng trong cụm: be afraid of hoặc I'm afraid...)", tick: false },
+  { en: "afraid (adj) /əˈfreɪd/", vn: "e sợ, lo ngại (thường dùng trong cụm: be ~ of hoặc I'm ~...)", tick: false },
   { en: "prepare (v) /prɪˈpeə(r)/", vn: "chuẩn bị, sửa soạn trước", tick: false },
-  { en: "cook (v/n) /kʊk/", vn: "nấu ăn (v); đầu bếp, người nấu ăn (n - lưu ý cooker là cái nồi cơm điện)", tick: false },
+  { en: "cook (v/n) /kʊk/", vn: "nấu ăn (v); đầu bếp, người nấu ăn (n - lưu ý ~er là cái nồi cơm điện)", tick: false },
   { en: "do the cooking (v phr)", vn: "làm công việc nấu ăn, quán xuyến bếp núc", tick: false },
   { en: "housework (n) /ˈhaʊswɜːk/", vn: "việc nhà, việc nội trợ (danh từ không đếm được)", tick: false },
   { en: "do household chores (v phr)", vn: "làm việc nhà, làm các công việc lặt vặt trong gia đình", tick: false },
   { en: "study for exams (v phr)", vn: "ôn thi, học bài để chuẩn bị cho kỳ thi", tick: false },
-  { en: "divide (v) /dɪˈvaɪd/", vn: "phân chia, chia nhỏ (thường dùng cấu trúc: divide sth into parts)", tick: false },
+  { en: "divide (v) /dɪˈvaɪd/", vn: "phân chia, chia nhỏ (thường dùng cấu trúc: ~ sth into parts)", tick: false },
   { en: "homemaker (n) /ˈhəʊmmeɪkə(r)/", vn: "người nội trợ", tick: false },
   { en: "breadwinner (n) /ˈbredwɪnə(r)/", vn: "trụ cột gia đình (người đi làm kiếm tiền chính nuôi gia đình)", tick: false },
   { en: "earn money (v phr)", vn: "kiếm tiền (bằng công sức lao động của mình)", tick: false },
@@ -481,15 +481,15 @@ const data = {
 { en: "boring (adj) /ˈbɔːrɪŋ/", vn: "tẻ nhạt, chán ngắt (gây ra cảm giác nhàm chán)", tick: false },
   { en: "responsible for (adj phr)", vn: "chịu trách nhiệm về cái gì / hành động gì", tick: false },
   { en: "take responsibility (v phr)", vn: "nhận trách nhiệm, gánh vác trách nhiệm (thường đi với giới từ for)", tick: false },
-  { en: "wife (n) /waɪf/", vn: "người vợ (số nhiều viết là wives)", tick: false },
+  { en: "wife (n) /waɪf/", vn: "người vợ", tick: false },
   { en: "parents (n) /ˈpeərənts/", vn: "bố mẹ, phụ huynh (số nhiều chỉ cả hai người)", tick: false },
   { en: "kid (n) /kɪd/", vn: "đứa trẻ, con bóng (ngôn ngữ nói thân mật)", tick: false },
-  { en: "children (n) /ˈtʃɪldrən/", vn: "trẻ em, những đứa con (số nhiều của child)", tick: false },
+  { en: "children (n) /ˈtʃɪldrən/", vn: "trẻ em, những đứa con", tick: false },
   { en: "study (v/n) /ˈstʌdi/", vn: "học tập, nghiên cứu (v); sự học, công trình nghiên cứu (n)", tick: false },
   { en: "good for (adj phr)", vn: "tốt cho ai/cái gì, có lợi cho", tick: false },
   { en: "develop (v) /dɪˈveləp/", vn: "phát triển, mở rộng, bộc lộ năng lực", tick: false },
   { en: "important (adj) /ɪmˈpɔːtnt/", vn: "quan trọng, có ý nghĩa lớn", tick: false },
-  { en: "life (n) /laɪf/", vn: "cuộc sống, đời sống, sinh mạng (số nhiều viết là lives)", tick: false },
+  { en: "life (n) /laɪf/", vn: "cuộc sống, đời sống, sinh mạng", tick: false },
   { en: "skill (n) /skɪl/", vn: "kỹ năng, kỹ xảo, năng lực làm thuần thục cái gì", tick: false },
   { en: "rest (v/n) /rest/", vn: "nghỉ ngơi (v); sự nghỉ ngơi, phần còn lại (n)", tick: false },
   { en: "take care of (v phr)", vn: "chăm sóc, trông nom (đồng nghĩa với look after)", tick: false },
@@ -512,7 +512,7 @@ const data = {
   { en: "All in all (idiom)", vn: "Tóm lại, nhìn chung hoàn toàn (dùng đầu câu để kết luận)", tick: false },
   { en: "benefit (n/v) /ˈbenɪfɪt/", vn: "lợi ích (n); mang lại lợi ích cho ai, được lợi từ cái gì (v)", tick: false },
   { en: "character (n) /ˈkærəktə(r)/", vn: "tính cách, nhân vật (truyện/phim), đặc điểm", tick: false },
-  { en: "encourage (v) /ɪnˈkʌrɪdʒ/", vn: "khuyến khích, động viên (cấu trúc: encourage sb to do sth)", tick: false },
+  { en: "encourage (v) /ɪnˈkʌrɪdʒ/", vn: "khuyến khích, động viên (cấu trúc: ~ sb to do sth)", tick: false },
   { en: "for their own good (idiom)", vn: "vì lợi ích của chính họ, tốt cho bản thân họ", tick: false },
   { en: "as well as (idiom)", vn: "cũng như là, và cả (dùng nối hai thành phần tương đương)", tick: false },
   { en: "whole (adj/n) /həʊl/", vn: "toàn bộ, toàn thể, trọn vẹn", tick: false },
@@ -521,10 +521,10 @@ const data = {
   { en: "mark (n/v) /mɑːk/", vn: "điểm số, dấu vết (n); đánh dấu, chấm điểm bài thi (v)", tick: false },
   { en: "clear up the kitchen (v phr)", vn: "dọn dẹp sạch sẽ căn bếp (sau khi nấu nướng/ăn xong)", tick: false },
 { en: "duty (n) /ˈdjuːti/", vn: "nghĩa vụ, bổn phận, trách nhiệm (phải làm vì đạo đức hoặc luật pháp)", tick: false },
-  { en: "hobby (n) /ˈhɒbi/", vn: "sở thích cá nhân, hoạt động giải trí lúc rảnh rỗi (số nhiều viết là hobbies)", tick: false },
-  { en: "common (adj) /ˈkɒmən/", vn: "phổ biến, thông thường, chung (thường gặp cụm: have sth in common - có điểm chung)", tick: false },
+  { en: "hobby (n) /ˈhɒbi/", vn: "sở thích cá nhân, hoạt động giải trí lúc rảnh rỗi", tick: false },
+  { en: "common (adj) /ˈkɒmən/", vn: "phổ biến, thông thường, chung (thường gặp cụm: have sth in ~ - có điểm chung)", tick: false },
   { en: "interest (n/v) /ˈɪntrest/ hoặc /ˈɪntərɪst/", vn: "sự quan tâm, sở thích, tiền lãi ngân hàng (n); làm cho ai hứng thú (v)", tick: false },
-  { en: "grateful (adj) /ˈɡreɪtfl/", vn: "biết ơn, cảm kích (thường dùng: be grateful to sb for sth)", tick: false },
+  { en: "grateful (adj) /ˈɡreɪtfl/", vn: "biết ơn, cảm kích (thường dùng: be ~ to sb for sth)", tick: false },
   { en: "quality (n) /ˈkwɒləti/", vn: "phẩm chất, chất lượng, đặc tính", tick: false },
   { en: "different from (adj phr)", vn: "khác biệt so với, không giống với (trái nghĩa là similar to)", tick: false },
   ],
